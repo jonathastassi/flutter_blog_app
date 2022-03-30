@@ -4,12 +4,15 @@ import 'package:flutter_blog_app/src/features/auth/domain/entities/user_entity.d
 class UserLoggedEntity extends Equatable {
   const UserLoggedEntity({
     required this.user,
-    required this.token,
+    required this.authorization,
   });
 
   final UserEntity user;
-  final String token;
+  final String authorization;
 
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [
+        user,
+        authorization,
+      ];
 }
