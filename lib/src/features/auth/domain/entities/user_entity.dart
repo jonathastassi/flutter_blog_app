@@ -8,6 +8,12 @@ class UserEntity extends Equatable {
     this.password = '',
   });
 
+  UserEntity withoutPassword() => UserEntity(
+        email: email,
+        id: id,
+        name: name,
+      );
+
   final String id;
   final String name;
   final String email;
