@@ -1,4 +1,3 @@
-import 'package:flutter_blog_app/src/features/auth/domain/entities/login_entity.dart';
 import 'package:flutter_blog_app/src/features/auth/domain/entities/user_entity.dart';
 import 'package:flutter_test/flutter_test.dart';
 
