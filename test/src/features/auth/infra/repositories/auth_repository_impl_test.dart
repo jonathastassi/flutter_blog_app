@@ -53,6 +53,15 @@ void main() {
     password: 'somePassword',
   );
 
+  const userLoggedModel = UserLoggedModel(
+    user: UserModel(
+      id: 'someId',
+      name: 'someName',
+      email: 'someEmail',
+    ),
+    authorization: 'someAuthorization',
+  );
+
   group('AuthRepositoryImpl', () {
     late AuthRepository authRepository;
     late SecureStorage mockSecureStorage;
@@ -191,7 +200,7 @@ void main() {
             email: 'someEmail',
             password: 'somePassword',
           ),
-        ).thenAnswer((_) async => userLoggedEntity);
+        ).thenAnswer((_) async => userLoggedModel);
 
         final response = await authRepository.login(loginEntity);
 
@@ -201,7 +210,8 @@ void main() {
             password: 'somePassword',
           ),
         ).called(1);
-        expect(response, const Right(userLoggedEntity));
+        expect(response.isRight(), isTrue);
+        response.fold((_) => null, (data) => expect(data, userLoggedModel));
       });
 
       test(
@@ -222,7 +232,11 @@ void main() {
             password: 'somePassword',
           ),
         ).called(1);
-        expect(response, Left<Failure, UserLoggedEntity>(UserNotFound()));
+        expect(response.isLeft(), isTrue);
+
+        response.fold((error) {
+          expect(error, UserNotFound());
+        }, (_) => null);
       });
 
       test(
@@ -257,7 +271,7 @@ void main() {
             email: 'someEmail',
             password: 'somePassword',
           ),
-        ).thenAnswer((_) async => userLoggedEntity);
+        ).thenAnswer((_) async => userLoggedModel);
 
         final response = await authRepository.register(registerEntity);
 
@@ -268,7 +282,8 @@ void main() {
             password: 'somePassword',
           ),
         ).called(1);
-        expect(response, const Right(userLoggedEntity));
+        expect(response.isRight(), true);
+        response.fold((_) => null, (data) => expect(data, userLoggedModel));
       });
 
       test(

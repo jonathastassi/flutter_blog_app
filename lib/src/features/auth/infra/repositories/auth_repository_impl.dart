@@ -10,6 +10,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_blog_app/src/features/auth/domain/repositories/auth_repository.dart';
 import 'package:flutter_blog_app/src/features/auth/infra/datasources/auth_api.dart';
 import 'package:flutter_blog_app/src/features/auth/infra/models/user_logged_model.dart';
+import 'package:flutter_blog_app/src/features/auth/infra/models/user_model.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl({
@@ -89,7 +90,11 @@ class AuthRepositoryImpl implements AuthRepository {
       UserLoggedEntity userLoggedEntity) async {
     try {
       final userLogged = UserLoggedModel(
-        user: userLoggedEntity.user,
+        user: UserModel(
+          id: userLoggedEntity.user.id,
+          name: userLoggedEntity.user.name,
+          email: userLoggedEntity.user.email,
+        ),
         authorization: userLoggedEntity.authorization,
       );
       final userLoggedJson = json.encode(userLogged.toJson());
