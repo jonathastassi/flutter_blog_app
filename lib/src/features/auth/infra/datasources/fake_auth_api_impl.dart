@@ -3,8 +3,8 @@ import 'package:flutter_blog_app/src/features/auth/infra/datasources/auth_api.da
 import 'package:flutter_blog_app/src/features/auth/infra/models/user_logged_model.dart';
 import 'package:flutter_blog_app/src/features/auth/infra/models/user_model.dart';
 
-class AuthApiImpl implements AuthApi {
-  AuthApiImpl({Faker? faker}) : _faker = faker ?? Faker();
+class FakeAuthApiImpl implements AuthApi {
+  FakeAuthApiImpl({Faker? faker}) : _faker = faker ?? Faker();
 
   final Faker _faker;
 
