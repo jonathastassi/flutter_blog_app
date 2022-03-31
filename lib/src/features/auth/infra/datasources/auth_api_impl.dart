@@ -19,8 +19,8 @@ class AuthApiImpl implements AuthApi {
       return UserLoggedModel(
         user: UserModel(
           id: _faker.guid.guid(),
-          email: _faker.internet.email(),
-          name: _faker.person.name(),
+          email: email,
+          name: password,
         ),
         authorization: _faker.jwt.valid(),
       );
@@ -37,7 +37,11 @@ class AuthApiImpl implements AuthApi {
     await Future.delayed(const Duration(seconds: 2));
 
     return UserLoggedModel(
-      user: UserModel(id: _faker.guid.guid(), email: email, name: name),
+      user: UserModel(
+        id: _faker.guid.guid(),
+        email: email,
+        name: name,
+      ),
       authorization: _faker.jwt.valid(),
     );
   }
