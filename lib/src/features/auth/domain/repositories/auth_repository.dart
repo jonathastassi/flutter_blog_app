@@ -12,4 +12,8 @@ abstract class AuthRepository {
   Future<Either<Failure, UserLoggedEntity>> register(
     RegisterEntity registerEntity,
   );
+
+  Future<Either<Failure, void>> saveUserLogged(
+    UserLoggedEntity userLoggedEntity,
+  );
 }
