@@ -1,5 +1,5 @@
 import 'package:faker/faker.dart';
-import 'package:flutter_blog_app/src/features/auth/infra/datasources/auth_api_impl.dart';
+import 'package:flutter_blog_app/src/features/auth/infra/datasources/fake_auth_api_impl.dart';
 import 'package:flutter_blog_app/src/features/auth/infra/models/user_logged_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
@@ -8,10 +8,10 @@ class MockFaker extends Mock implements Faker {}
 
 void main() {
   group('AuthApiImpl', () {
-    late AuthApiImpl authApiImpl;
+    late FakeAuthApiImpl authApiImpl;
 
     setUp(() {
-      authApiImpl = AuthApiImpl();
+      authApiImpl = FakeAuthApiImpl();
     });
 
     group('login', () {
