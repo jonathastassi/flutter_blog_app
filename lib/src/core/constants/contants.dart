@@ -1,3 +1,3 @@
 class Constants {
-  static String keyUserLoggedStored = 'user_logged_stored';
+  static var keyUserLoggedStored = 'user_logged_stored';
 }
