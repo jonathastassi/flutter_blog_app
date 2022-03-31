@@ -8,3 +8,9 @@ abstract class Failure extends Equatable {
 class ServerFailure extends Failure {}
 
 class NoConnectionFailure extends Failure {}
+
+class UserNotFound extends Failure {}
+
+class ErrorOnSaveLocalStorage extends Failure {}
+
+class ErrorOnLocalStorage extends Failure {}
