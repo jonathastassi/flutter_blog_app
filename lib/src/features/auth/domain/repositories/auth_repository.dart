@@ -16,4 +16,6 @@ abstract class AuthRepository {
   Future<Either<Failure, void>> saveUserLogged(
     UserLoggedEntity userLoggedEntity,
   );
+
+  Future<Either<Failure, void>> logout();
 }
