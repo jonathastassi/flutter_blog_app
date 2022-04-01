@@ -15,7 +15,7 @@ class AppCubit extends Cubit<AppState> {
   UserLoggedEntity? get userLogged => state.userLoggedEntity;
 
   Future<void> initialize() async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 3));
     final response = await _getUserLoggedUseCase.call(NoParams());
 
     response.fold(
