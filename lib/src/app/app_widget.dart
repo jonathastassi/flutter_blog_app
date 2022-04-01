@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_blog_app/src/core/navigation/app_router.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
-class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+class AppWidget extends StatelessWidget {
+  const AppWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routeInformationParser: Modular.routeInformationParser,
+      routerDelegate: Modular.routerDelegate,
       title: 'Flutter Blog App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -16,7 +18,6 @@ class App extends StatelessWidget {
           backgroundColor: Color(0XFF009CA3),
         ),
       ),
-      onGenerateRoute: AppRouter.onGeneratedRoutes,
     );
   }
 }
