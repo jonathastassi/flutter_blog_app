@@ -37,8 +37,7 @@ void main() {
         ],
       );
 
-      when(() => mockAppCubit.state)
-          .thenReturn(const AppState.unauthenticated());
+      when(() => mockAppCubit.state).thenReturn(UnauthenticatedState());
       when(() => mockAppCubit.checkUserLogged()).thenAnswer((_) async => Void);
 
       await tester.pumpWidget(
