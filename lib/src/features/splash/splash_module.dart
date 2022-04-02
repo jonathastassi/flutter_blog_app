@@ -1,4 +1,4 @@
-import 'package:flutter_blog_app/src/features/splash/presenter/splash_page.dart';
+import 'package:flutter_blog_app/src/features/splash/presenter/view/splash_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class SplashModule extends Module {
@@ -9,7 +9,7 @@ class SplashModule extends Module {
   final List<ModularRoute> routes = [
     ChildRoute(
       Modular.initialRoute,
-      child: (context, args) => const SplashPage(),
+      child: (_, __) => const SplashPage(),
     ),
   ];
 }
