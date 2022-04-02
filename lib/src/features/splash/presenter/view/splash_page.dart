@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_blog_app/src/app/bloc/app_cubit.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
-class SplashView extends StatefulWidget {
-  const SplashView({Key? key}) : super(key: key);
+class SplashPage extends StatefulWidget {
+  const SplashPage({Key? key}) : super(key: key);
 
   @override
-  State<SplashView> createState() => _SplashViewState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashViewState extends State<SplashView> {
+class _SplashPageState extends ModularState<SplashPage, AppCubit> {
   bool initialized = false;
 
   @override
   void initState() {
-    Future.delayed(const Duration(milliseconds: 50)).then((_) {
-      setState(() {
-        initialized = true;
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      cubit.checkUserLogged();
+      Future.delayed(const Duration(milliseconds: 50)).then((_) {
+        setState(() {
+          initialized = true;
+        });
       });
+      ;
     });
 
     super.initState();
