@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
 final theme = ThemeData(
+  appBarTheme: const AppBarTheme(
+    toolbarHeight: 72,
+    elevation: 0,
+    centerTitle: true,
+  ),
   // primaryColorDark: const Color(0xFF0097A7),
   // primaryColorLight: const Color(0xFFB2EBF2),
   // colorScheme: const ColorScheme.light(secondary: Color(0xFF009688)),
@@ -23,7 +28,9 @@ final theme = ThemeData(
       color: Color(0xFFFDFAF6),
     ),
     headline5: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-    headline6: TextStyle(fontSize: 20.0, fontStyle: FontStyle.italic),
+    headline6: TextStyle(
+      fontSize: 20.0,
+    ),
     // bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
   ),
   colorScheme: const ColorScheme.light().copyWith(

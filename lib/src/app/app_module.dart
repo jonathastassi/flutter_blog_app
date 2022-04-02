@@ -2,6 +2,7 @@ import 'package:flutter_blog_app/src/app/bloc/app_cubit.dart';
 import 'package:flutter_blog_app/src/core/secure_storage/secure_storage.dart';
 import 'package:flutter_blog_app/src/features/auth/auth_module.dart';
 import 'package:flutter_blog_app/src/features/auth/domain/repositories/auth_repository.dart';
+import 'package:flutter_blog_app/src/features/auth/domain/usecases/do_logout_usecase.dart';
 import 'package:flutter_blog_app/src/features/auth/domain/usecases/get_user_logged_usecase.dart';
 import 'package:flutter_blog_app/src/features/auth/infra/datasources/auth_api.dart';
 import 'package:flutter_blog_app/src/features/auth/infra/datasources/fake_auth_api_impl.dart';
@@ -32,9 +33,15 @@ class AppModule extends Module {
         authRepository: i(),
       ),
     ),
+    Bind.factory<DoLogoutUseCase>(
+      (i) => DoLogoutUseCase(
+        authRepository: i(),
+      ),
+    ),
     Bind.singleton<AppCubit>(
       (i) => AppCubit(
         getUserLoggedUseCase: i(),
+        doLogoutUseCase: i(),
       ),
     ),
   ];
