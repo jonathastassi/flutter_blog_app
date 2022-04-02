@@ -1,31 +1,22 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_blog_app/src/features/auth/domain/entities/user_logged_entity.dart';
 
-enum AppStatus {
-  authenticated,
-  unauthenticated,
-}
+abstract class AppState extends Equatable {}
 
-class AppState extends Equatable {
-  const AppState._({
-    required this.status,
-    this.userLoggedEntity,
+class AuthenticatedState extends AppState {
+  AuthenticatedState({
+    required this.userLoggedEntity,
   });
 
-  const AppState.authenticated(UserLoggedEntity userLoggedEntity)
-      : this._(
-          status: AppStatus.authenticated,
-          userLoggedEntity: userLoggedEntity,
-        );
-
-  const AppState.unauthenticated() : this._(status: AppStatus.unauthenticated);
-
-  final UserLoggedEntity? userLoggedEntity;
-  final AppStatus status;
+  final UserLoggedEntity userLoggedEntity;
 
   @override
   List<Object?> get props => [
-        status,
         userLoggedEntity,
       ];
+}
+
+class UnauthenticatedState extends AppState {
+  @override
+  List<Object?> get props => [];
 }
