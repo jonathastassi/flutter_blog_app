@@ -49,7 +49,11 @@ class AppModule extends Module {
   @override
   final List<ModularRoute> routes = [
     ModuleRoute(Modular.initialRoute, module: SplashModule()),
-    ModuleRoute('/auth', module: AuthModule()),
+    ModuleRoute(
+      '/auth',
+      module: AuthModule(),
+      transition: TransitionType.rightToLeftWithFade,
+    ),
     ModuleRoute('/home', module: HomeModule()),
   ];
 }
