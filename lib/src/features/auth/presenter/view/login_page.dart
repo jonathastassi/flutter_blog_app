@@ -93,6 +93,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginCubit>
                         child: Column(
                           children: [
                             TextFormField(
+                              key: const Key('loginPage_email'),
                               enabled: !state.loading,
                               focusNode: _emailFocus,
                               keyboardType: TextInputType.emailAddress,
@@ -105,6 +106,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginCubit>
                               onChanged: bloc.setEmail,
                             ),
                             TextFormField(
+                              key: const Key('loginPage_password'),
                               enabled: !state.loading,
                               validator: validatePassword,
                               decoration: const InputDecoration(
