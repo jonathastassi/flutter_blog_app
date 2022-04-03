@@ -14,8 +14,6 @@ import 'package:modular_test/modular_test.dart';
 
 class MockAppCubit extends MockCubit<AppState> implements AppCubit {}
 
-class MockStream extends Mock implements Stream<AppState> {}
-
 class ModularNavigateMock extends Mock implements IModularNavigator {}
 
 class MockGetUserLoggedUseCase extends Mock implements GetUserLoggedUseCase {}
