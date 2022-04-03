@@ -11,8 +11,8 @@ class OutlinedButtonCustom extends OutlinedButton {
           child: loading
               ? const SizedBox(
                   child: CircularProgressIndicator(),
-                  height: 10,
-                  width: 10,
+                  height: 25,
+                  width: 25,
                 )
               : child,
           onPressed: loading ? null : onPressed,
