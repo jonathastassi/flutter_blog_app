@@ -7,7 +7,6 @@ import 'package:flutter_blog_app/src/app/bloc/app_cubit.dart';
 import 'package:flutter_blog_app/src/app/bloc/app_state.dart';
 import 'package:flutter_blog_app/src/features/auth/domain/usecases/get_user_logged_usecase.dart';
 import 'package:flutter_blog_app/src/features/splash/presenter/view/splash_page.dart';
-import 'package:flutter_blog_app/src/features/splash/splash_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

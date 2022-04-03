@@ -21,7 +21,6 @@ class _SplashPageState extends ModularState<SplashPage, AppCubit> {
           initialized = true;
         });
       });
-      ;
     });
 
     super.initState();
@@ -59,9 +58,10 @@ class _SplashPageState extends ModularState<SplashPage, AppCubit> {
                       children: <TextSpan>[
                         TextSpan(
                           text: ' Blog',
-                          style: Theme.of(context).textTheme.headline4!.copyWith(
-                                fontWeight: FontWeight.normal,
-                              ),
+                          style:
+                              Theme.of(context).textTheme.headline4!.copyWith(
+                                    fontWeight: FontWeight.normal,
+                                  ),
                         )
                       ],
                     ),
