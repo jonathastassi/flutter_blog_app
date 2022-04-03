@@ -1,5 +1,4 @@
 import 'dart:ffi';
-
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_blog_app/src/app/app_module.dart';
 import 'package:flutter_blog_app/src/app/app_widget.dart';
@@ -25,8 +24,7 @@ void main() {
         ],
       );
 
-      when(() => mockAppCubit.state)
-          .thenReturn(UnauthenticatedState());
+      when(() => mockAppCubit.state).thenReturn(UnauthenticatedState());
       when(() => mockAppCubit.checkUserLogged()).thenAnswer((_) async => Void);
 
       await tester.pumpWidget(
