@@ -94,6 +94,7 @@ class _RegisterPageState extends ModularState<RegisterPage, RegisterCubit>
                         child: Column(
                           children: [
                             TextFormField(
+                              key: const Key('registerPage_email'),
                               enabled: !state.loading,
                               focusNode: _emailFocus,
                               keyboardType: TextInputType.emailAddress,
@@ -106,6 +107,7 @@ class _RegisterPageState extends ModularState<RegisterPage, RegisterCubit>
                               onChanged: bloc.setEmail,
                             ),
                             TextFormField(
+                              key: const Key('registerPage_name'),
                               enabled: !state.loading,
                               validator: validateName,
                               decoration: InputDecoration(
@@ -116,6 +118,7 @@ class _RegisterPageState extends ModularState<RegisterPage, RegisterCubit>
                               onChanged: bloc.setName,
                             ),
                             TextFormField(
+                              key: const Key('registerPage_password'),
                               enabled: !state.loading,
                               validator: validatePassword,
                               decoration: const InputDecoration(
@@ -123,6 +126,19 @@ class _RegisterPageState extends ModularState<RegisterPage, RegisterCubit>
                               ),
                               obscureText: true,
                               onChanged: bloc.setPassword,
+                            ),
+                            TextFormField(
+                              key: const Key('registerPage_confirmPassword'),
+                              enabled: !state.loading,
+                              validator: (value) => validateConfirmPassword(
+                                value,
+                                state.password,
+                              ),
+                              decoration: const InputDecoration(
+                                labelText: 'Confirmar Senha',
+                              ),
+                              obscureText: true,
+                              onChanged: bloc.setConfirmPassword,
                             ),
                             const SizedBox(
                               height: 16,
