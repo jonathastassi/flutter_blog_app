@@ -50,18 +50,21 @@ class _SplashPageState extends ModularState<SplashPage, AppCubit> {
                 const SizedBox(
                   height: 32,
                 ),
-                RichText(
-                  text: TextSpan(
-                    text: 'Together',
-                    style: Theme.of(context).textTheme.headline4,
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: ' Blog',
-                        style: Theme.of(context).textTheme.headline4!.copyWith(
-                              fontWeight: FontWeight.normal,
-                            ),
-                      )
-                    ],
+                Hero(
+                  tag: 'splash_title',
+                  child: RichText(
+                    text: TextSpan(
+                      text: 'Together',
+                      style: Theme.of(context).textTheme.headline4,
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: ' Blog',
+                          style: Theme.of(context).textTheme.headline4!.copyWith(
+                                fontWeight: FontWeight.normal,
+                              ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -75,8 +78,10 @@ class _SplashPageState extends ModularState<SplashPage, AppCubit> {
                 )
               ],
             ),
-            const Center(
-              child: CircularProgressIndicator(),
+            Center(
+              child: CircularProgressIndicator(
+                color: Theme.of(context).colorScheme.onSecondary,
+              ),
             ),
           ],
         ),
