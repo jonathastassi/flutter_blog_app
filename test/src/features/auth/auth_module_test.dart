@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_blog_app/src/features/auth/auth_module.dart';
+import 'package:flutter_blog_app/src/app/app_module.dart';
 import 'package:flutter_blog_app/src/features/auth/presenter/view/login_page.dart';
 import 'package:flutter_blog_app/src/features/auth/presenter/view/register_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -11,10 +11,10 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         Builder(builder: (context) {
-          Modular.setInitialRoute('/');
+          Modular.setInitialRoute('/auth/');
 
           return ModularApp(
-            module: AuthModule(),
+            module: AppModule(),
             child: MaterialApp.router(
               routeInformationParser: Modular.routeInformationParser,
               routerDelegate: Modular.routerDelegate,
@@ -32,10 +32,10 @@ void main() {
         (tester) async {
       await tester.pumpWidget(
         Builder(builder: (context) {
-          Modular.setInitialRoute('/register');
+          Modular.setInitialRoute('/auth/register');
 
           return ModularApp(
-            module: AuthModule(),
+            module: AppModule(),
             child: MaterialApp.router(
               routeInformationParser: Modular.routeInformationParser,
               routerDelegate: Modular.routerDelegate,
