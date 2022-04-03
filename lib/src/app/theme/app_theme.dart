@@ -11,13 +11,22 @@ final theme = ThemeData(
   // colorScheme: const ColorScheme.light(secondary: Color(0xFF009688)),
   scaffoldBackgroundColor: const Color(0xFFFDFAF6),
   progressIndicatorTheme: const ProgressIndicatorThemeData(
-    color: Color(0xFFFDFAF6),
+    color: Color(0xFF064420),
   ),
   // inputDecorationTheme: InputDecorationTheme(
   // border: OutlineInputBorder(
   // borderRadius: BorderRadius.circular(8),
   // ),
   // ),
+  outlinedButtonTheme: OutlinedButtonThemeData(
+    style: OutlinedButton.styleFrom(
+      minimumSize: const Size.fromHeight(64),
+      primary: const Color(0xFF064420),
+      textStyle: const TextStyle(
+        fontSize: 20,
+      ),
+    ),
+  ),
   textTheme: const TextTheme(
     headline1: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
     headline2: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
